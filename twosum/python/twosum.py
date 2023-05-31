@@ -1,15 +1,19 @@
+#!/usr/bin/env python3
 
 def twoSum(array, target):
-    """ Initial attempt at solving two sum problem.
+    """ Initial attempt at solving twosum problem.
 
-    Iterating through the array twice yields a O(n^2) solution. We can do
-    better.
+    Iterating through the array twice yields a O(n^2) solution.
+    We can do better.
 
     Args:
         array (list): List of ints to search for sum.
         target (int): Int value we are searching for.
 
     Examples:
+        While traversing array should find values 6 and 7 which sum to target.
+        Search should cease after finding second value and return list of
+        indexes for values 6 and 7.
         >>> array = [0, 6, 2, 7, 12]
         >>> target = 13
         >>> twoSum(array, target)
