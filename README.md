@@ -12,3 +12,5 @@ Time permitting will add unittests and maybe some microbenchmarks.
 - Rust
 - Golang
 - Perl
+- Ruby
+- Julia
