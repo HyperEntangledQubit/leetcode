@@ -18,4 +18,15 @@ def twoSum(array, target):
     Returns:
         list of indexes containing the two numbers that sum to our target.
     """
-    pass
+    result = []
+    for i in range(len(array)):
+        # Stopping at two results here. Omit condition for 3-sum or N-sum.
+        if len(result) == 2:
+            break
+        for j in range(len(array)):
+            if i != j: # Omit dupes
+                if array[i] + array[j] == target:
+                    result.append(i)
+                    result.append(j)
+                    break
+    return result
