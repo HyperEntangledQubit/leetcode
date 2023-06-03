@@ -14,8 +14,8 @@ cd path/to/leetcode/two/python/
 tox
 ```
 
-**Note**
-To run the other python interpreters user needs to install them.
+> **Note**
+> To run the other python interpreters user needs to install them.
 I used pyenv to do this via homebrew on macosx. Windows users can use choco.
 
 ``` zsh
