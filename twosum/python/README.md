@@ -22,5 +22,5 @@ I used pyenv to do this via homebrew on macosx. Windows users can use choco.
 brew install pyenv
 pyenv install 3.7.16 # Change the version here or use `pyenv list` to find the
 appropriate version
-``
+```
 
