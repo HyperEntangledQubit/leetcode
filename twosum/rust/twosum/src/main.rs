@@ -4,12 +4,25 @@ use std::collections::HashMap;
 
 /// Solution using double loop O(n^2) here.
 fn two_sum_dbl_loop(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    
+    let mut twosum = Vec::new();
+
+    for (idx, _) in nums.iter().enumerate() {
+        if twosum.len() == 2 {
+            break;
+        }
+        for (jdx, _) in nums.iter().enumerate() {
+            if idx != jdx && nums[idx] + nums[jdx] == target {
+            twosum.push(idx.try_into().unwrap());
+            twosum.push(jdx.try_into().unwrap());
+            }
+        }
+    }
+    twosum
 }
 
 /// Solution using hashmap O(n) here.
 fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    let mut seen_vals: HashMap<i32, usize> = HashMap::new();
+    let mut seen_vals: HashMap<i32, i32> = HashMap::new();
     let mut twosum = Vec::new();
 
     for (idx, val) in nums.iter().enumerate() {
@@ -25,5 +38,8 @@ fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let nums = vec![21, 3, 61, 44, 87, 98, -1, 4];
+    let tgt = 60;
+    println!("Twosum using dbl loop is: {:?}", two_sum_dbl_loop(nums.clone(), tgt));
+    println!("Twosum using hash is: {:?}", two_sum(nums.clone(), tgt));
 }
