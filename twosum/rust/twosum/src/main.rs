@@ -37,9 +37,26 @@ fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     twosum
 }
 
+/// Alternate solution correctly using ownership in rust here.
+fn twosum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    let mut seen_vals: HashMap<i32, usize> = HashMap::new();
+
+    for (idx, val) in nums.iter().enumerate() {
+        let tdiff = target - val;
+        /* Avoid try_into().unwrap() call for usize -> i32 cast */
+        if let Some(num) = seen_vals.get(&tdiff) {
+            return vec![*num as i32, idx as i32];
+        } else {
+            seen_vals.insert(*val, idx);
+        }
+    }
+    vec![]
+}
+
 fn main() {
     let nums = vec![21, 3, 61, 44, 87, 98, -1, 4];
     let tgt = 60;
     println!("Twosum using dbl loop is: {:?}", two_sum_dbl_loop(nums.clone(), tgt));
     println!("Twosum using hash is: {:?}", two_sum(nums.clone(), tgt));
+    println!("Twosum using alt solution is: {:?}", twosum(nums.clone(), tgt));
 }
